@@ -89,7 +89,7 @@ const team = (team) => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css
       ">
-      <link rel="stylesheet" href="./styles.css">
+      <link rel="stylesheet" href="./style.css" />
       <script src="https://kit.fontawesome.com/c502137733.js"></script>
       <title>Team Profile</title>
   </head>
