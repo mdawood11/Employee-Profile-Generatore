@@ -23,15 +23,11 @@ The user should clone the repository from GitHub and download Node. This applica
 ## Usage
 
 Use inquirer from your command line to answer questions about your project.
-View walk through video here - https://drive.google.com/file/d/1ur0m7MN7uDRShqlQ7DGC24HykE5Alq9W/view
+View walk through video here -
 
 ## Mock-Up
 
 The following image shows a mock-up of the generated HTML’s appearance and functionality:
-
-![_Users_palwashanoori_Desktop_Home-works_Employee-Profile-Gen%20cpy_output_index html](https://user-images.githubusercontent.com/111917750/224581197-76e1fbbe-3548-4a2c-b1d1-db0808ed2c04.png)
-
-
 
 ## License
 

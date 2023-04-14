@@ -1,32 +1,27 @@
-// node modules
-const inquirer = require("inquirer");
-const fs = require("fs");
-const createTeam = require("./src/landing-page");
-
-//library (lib) module
 const engineer = require("./lib/engineer");
 const intern = require("./lib/intern");
 const manager = require("./lib/manager");
+const createTeam = require("./src/landing-page");
+const inquirer = require("inquirer");
+const fs = require("fs");
 
-// responds array
-const newMemberData = [];
+const newData = [];
 
-// Array object
-const quests = async () => {
+const questions = async () => {
   const response = await inquirer.prompt([
     {
       type: "input",
-      message: "What is your name?",
+      message: "Please enter your name",
       name: "name",
     },
     {
       type: "input",
-      message: "What is your ID number?",
+      message: "Please enter your ID number",
       name: "id",
     },
     {
       type: "input",
-      message: "What is your email?",
+      message: "Enter your email address",
       name: "email",
     },
     {
@@ -37,42 +32,37 @@ const quests = async () => {
     },
   ]);
 
-  // in case of manager position selection, ask these 👇
   if (response.role === "Manager") {
-    const mngrResp = await inquirer.prompt([
+    const responseManager = await inquirer.prompt([
       {
         type: "input",
-        message: "What is your office number?",
+        message: "Please enter your office number",
         name: "officeNumber",
       },
     ]);
-    const mngrNew = new manager(
+    const managerNew = new manager(
       response.name,
       response.id,
       response.email,
-      mngrResp.officeNumber
+      responseManager.officeNumber
     );
-    newMemberData.push(mngrNew);
-
-    // if engineer's position selected then ask these questions 👇
+    newData.push(managerNew);
   } else if (response.role === "Engineer") {
     const githubResponse = await inquirer.prompt([
       {
         type: "input",
-        message: "What is your github username?",
+        message: "Please enter your github username",
         name: "github",
       },
     ]);
 
-    const engNew = new engineer(
+    const engineerNew = new engineer(
       response.name,
       response.id,
       response.email,
       githubResponse.github
     );
-    newMemberData.push(engNew);
-
-    // if intern's position selected then ask these questions 👇
+    newData.push(engineerNew);
   } else if (response.role === "Intern") {
     const internResp = await inquirer.prompt([
       {
@@ -87,31 +77,31 @@ const quests = async () => {
       response.email,
       internResp.school
     );
-    newMemberData.push(internNew);
+    newData.push(internNew);
   }
 };
 
-async function promptQsts() {
-  await quests();
+async function promptReturn() {
+  await questions();
 
   const memberResp = await inquirer.prompt([
     {
-      name: "addMember",
+      name: "addMore",
       type: "list",
       choices: ["Add a new member", "Create team"],
       message: "What would you like to do next?",
     },
   ]);
 
-  if (memberResp.addMember === "Add a new member") {
-    return promptQsts();
+  if (memberResp.addMore === "Add a new member") {
+    return promptReturn();
   }
   return createNewTeam();
 }
 
-promptQsts();
+promptReturn();
 
-function createNewTeam() {
-  console.log(newMemberData);
-  fs.writeFileSync("./output/index.html", createTeam(newMemberData), "utf-8");
-}
+const createNewTeam = () => {
+  console.log(newData);
+  fs.writeFileSync("./output/index.html", createTeam(newData), "utf-8");
+};
