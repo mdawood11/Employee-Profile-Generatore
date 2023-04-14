@@ -28,9 +28,8 @@ View walk through video here -
 ## Mock-Up
 
 The following video and image shows a mock-up of the generated HTML’s appearance and functionality:
-https://drive.google.com/file/d/1_iwm_ZVUWyKbkaUiWZGu7YGbIct8AzU0/viewLinks to an external site.
+https://drive.google.com/file/d/1_iwm_ZVUWyKbkaUiWZGu7YGbIct8AzU0/view
 ![127 0 0 1_5500_output_index html (1)](https://user-images.githubusercontent.com/111917750/231982716-cf604b93-ae8f-47c6-94b2-0b0fb45a53cb.png)
-
 
 
 ## License
